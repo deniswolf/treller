@@ -12,7 +12,7 @@ defmodule Treller.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:cowboy, :plug]]
+    [applications: [:cowboy, :plug, :exjsx]]
   end
 
   # Dependencies can be Hex packages:
@@ -27,7 +27,8 @@ defmodule Treller.Mixfile do
   defp deps do
     [
       {:cowboy, "~> 1.0.0"},
-      {:plug, "~> 0.9.0"}
+      {:plug, "~> 0.9.0"},
+      {:exjsx, "~> 3.1.0"}
     ]
   end
 end
