@@ -14,4 +14,9 @@ defmodule Treller do
         send_resp(conn, 403, "no commits were found")
     end
   end
+
+  match _ do
+    send_resp conn, 404, "not found"
+  end
+
 end

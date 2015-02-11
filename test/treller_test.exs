@@ -12,6 +12,14 @@ defmodule TrellerTest do
     assert conn.resp_body == "the service is available"
   end
 
+  test "has 404" do
+    conn = conn :get, "/bubu"
+    conn = Treller.call conn, nil
+
+    assert conn.status    == 404
+    assert conn.resp_body == "not found"
+  end
+
   test "returns Error status on empty commits post" do
     conn = conn :post, "/", "", headers: @json_header
     conn = Treller.call conn, nil
