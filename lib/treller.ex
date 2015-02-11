@@ -7,4 +7,11 @@ defmodule Treller do
   get "/" do
     send_resp(conn, 200, "the service is available")
   end
+
+  post "/" do
+    case read_body(conn) do
+      {:ok, "", conn} ->
+        send_resp(conn, 403, "no commits were found")
+    end
+  end
 end
